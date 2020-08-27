@@ -6,7 +6,6 @@ export class EnvService {
     const content = fs.readFileSync(template_file_path, 'utf8');
     const compiled = template(content);
     const new_content = compiled(values);
-    console.log({ new_content });
     fs.writeFileSync(file, new_content);
     return new_content;
   }
