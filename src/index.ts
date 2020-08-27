@@ -6,6 +6,7 @@ class App {
   run() {
     const envService = new EnvService();
     const file = path.resolve(process.cwd(), process.env.PLUGIN_FILE);
+    const template = path.resolve(process.cwd(), process.env.PLUGIN_TEMPLATE);
     const values = {};
     const envs = process.env.PLUGIN_ENVS.split(',');
     envs.forEach((item) => {
@@ -17,7 +18,7 @@ class App {
         process.exit(1);
       }
     }
-    envService.compile(file, values);
+    envService.compile(file, template, values);
   }
 }
 
