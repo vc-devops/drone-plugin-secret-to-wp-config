@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build:clean": "./node_modules/.bin/rimraf ./dist/*",
-    "build:dev": "yarn build:clean && ./node_modules/.bin/tsc -p tsconfig.json",
-    "build:prod": "yarn build:clean && ./node_modules/.bin/tsc -p tsconfig.json",
+    "build:dev": "tsc -p tsconfig.json",
+    "build:prod": "tsc -p tsconfig.json",
     "test": "yarn test"
   },
   "repository": {

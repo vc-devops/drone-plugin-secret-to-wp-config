@@ -8,6 +8,8 @@ COPY package*.json yarn*.lock ./
 
 RUN yarn install --production=false --frozen-lockfile 
 
-RUN mkdir -p dist && yarn build:prod
+RUN npm install -g typescript
+
+RUN mkdir -p dist && ls && yarn build:prod
 
 ENTRYPOINT /bin/script.sh
