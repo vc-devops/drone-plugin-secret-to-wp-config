@@ -14,6 +14,6 @@ RUN npm install -g typescript
 
 COPY . .
 
-RUN mkdir -p dist && ls && yarn build:prod
+RUN mkdir -p dist && ls -al dist && yarn build:prod
 
 ENTRYPOINT /bin/script.sh
