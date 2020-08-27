@@ -8,7 +8,7 @@ COPY package*.json yarn*.lock ./
 
 RUN yarn install --production=false --frozen-lockfile 
 
-RUN mdkir dist && yarn build:prod
+RUN mkdir -p dist && yarn build:prod
 
 RUN rm -rf dist && rm -rf node_modules
 
