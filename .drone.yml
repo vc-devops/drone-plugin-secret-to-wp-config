@@ -38,7 +38,7 @@ steps:
         - GIT_DEFAULT_BRANCH
       GIT_TOKEN:
         from_secret: GIT_TOKEN
-  - name: prepare
+  - name: test
     image: busybox
     commands:
       - ls -al
