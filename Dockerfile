@@ -8,6 +8,8 @@ COPY package*.json yarn*.lock ./
 
 RUN yarn install --production=false --frozen-lockfile 
 
+WORKDIR /app
+
 RUN npm install -g typescript
 
 COPY . .
