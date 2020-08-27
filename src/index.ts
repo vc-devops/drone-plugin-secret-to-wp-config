@@ -12,8 +12,10 @@ class App {
       values[item] = get(process.env, `PLUGIN_${item}`);
     });
     for (let k in envs) {
+      console.log(k, envs[k]);
       if (isNil(envs[k]) || envs[k] === '') {
-        throw new Error(`can not get value of ${k}`);
+        console.log(`can not get value of ${k}`);
+        process.exit(1);
       }
     }
     envService.compile(file, values);
