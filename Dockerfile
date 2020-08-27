@@ -10,6 +10,6 @@ RUN yarn install --production=false --frozen-lockfile
 
 RUN mkdir -p dist && yarn build:prod
 
-RUN rm -rf dist && rm -rf node_modules
+RUN rm -rf src && rm -rf node_modules
 
 ENTRYPOINT /bin/script.sh
