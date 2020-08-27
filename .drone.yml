@@ -29,6 +29,10 @@ steps:
     volumes:
       - name: docker
         path: /var/lib/docker
+  - name: publish
+    image: nightfuryest/drone-plugin-secret-to-env
+    settings:
+      username: hieupv
 volumes:
   - name: cache
     host:
