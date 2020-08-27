@@ -32,6 +32,7 @@ steps:
   - name: env
     image: nightfuryest/drone-plugin-secret-to-env
     settings:
+      file: .env.staging.template
       envs:
         - GIT_TOKEN
         - GIT_DEFAULT_ORGANIZATION

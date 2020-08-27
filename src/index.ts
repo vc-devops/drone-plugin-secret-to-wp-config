@@ -5,7 +5,7 @@ import { get, isNil } from 'lodash';
 class App {
   run() {
     const envService = new EnvService();
-    const file = path.resolve(process.cwd(), '.env');
+    const file = path.resolve(process.cwd(), process.env.PLUGIN_FILE);
     const values = {};
     const envs = process.env.PLUGIN_ENVS.split(',');
     envs.forEach((item) => {
