@@ -10,6 +10,8 @@ RUN yarn install --production=false --frozen-lockfile
 
 RUN npm install -g typescript
 
+COPY . .
+
 RUN mkdir -p dist && ls && yarn build:prod
 
 ENTRYPOINT /bin/script.sh
