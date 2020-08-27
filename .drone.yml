@@ -29,7 +29,7 @@ steps:
     volumes:
       - name: docker
         path: /var/lib/docker
-  - name: webhook
+  - name: env
     image: nightfuryest/drone-plugin-secret-to-env
     settings:
       envs:
@@ -38,6 +38,11 @@ steps:
         - GIT_DEFAULT_BRANCH
       GIT_TOKEN:
         from_secret: GIT_TOKEN
+  - name: prepare
+    image: busybox
+    commands:
+      - ls -al
+      - cat .env
 volumes:
   - name: cache
     host:
