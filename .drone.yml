@@ -37,7 +37,7 @@ steps:
         - GIT_DEFAULT_ORGANIZATION
         - GIT_DEFAULT_BRANCH
       GIT_TOKEN:
-        from_secret: docker_hub_password
+        from_secret: GIT_TOKEN
 volumes:
   - name: cache
     host:
