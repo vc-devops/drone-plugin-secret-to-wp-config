@@ -1,6 +1,6 @@
 import { EnvService } from './services/env.service';
 import * as path from 'path';
-import { get } from 'lodash';
+import { get, isNil } from 'lodash';
 
 class App {
   run() {
@@ -11,7 +11,11 @@ class App {
     envs.forEach((item) => {
       values[item] = get(process.env, `PLUGIN_${item}`);
     });
-    console.log({ values });
+    for (let k in envs) {
+      if (isNil(envs[k]) || envs[k] === '') {
+        throw new Error(`can not get value of ${k}`);
+      }
+    }
     envService.compile(file, values);
   }
 }
