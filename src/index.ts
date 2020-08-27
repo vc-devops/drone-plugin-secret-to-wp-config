@@ -11,9 +11,8 @@ class App {
     envs.forEach((item) => {
       values[item] = get(process.env, `PLUGIN_${item}`);
     });
-    for (let k in envs) {
-      console.log(k, envs[k]);
-      if (isNil(envs[k]) || envs[k] === '') {
+    for (let k in values) {
+      if (isNil(values[k]) || values[k] === '') {
         console.log(`can not get value of ${k}`);
         process.exit(1);
       }
