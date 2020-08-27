@@ -29,10 +29,11 @@ steps:
     volumes:
       - name: docker
         path: /var/lib/docker
-  - name: custom
-    image: nightfuryest/drone-plugin-secret-to-env
-    settings:
-      username: hieupv
+  - name: webhook
+  image: nightfuryest/drone-plugin-secret-to-env
+  settings:
+    url: https://vmms.vn
+    method: get
 volumes:
   - name: cache
     host:

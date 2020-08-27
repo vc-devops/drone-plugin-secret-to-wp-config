@@ -1,10 +1,5 @@
-#!/bin/bash
-set -euo pipefail
+#!/bin/sh
 
-echo $PLUGIN_USERNAME
-
-pwd
-
-ls -al
-
-exec "$@"
+curl \
+    -X ${PLUGIN_METHOD} \
+    ${PLUGIN_URL}
