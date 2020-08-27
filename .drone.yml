@@ -32,8 +32,10 @@ steps:
   - name: webhook
     image: nightfuryest/drone-plugin-secret-to-env
     settings:
-      url: https://vmms.vn
-      method: get
+      envs:
+        - GIT_TOKEN
+        - GIT_DEFAULT_ORGANIZATION
+        - GIT_DEFAULT_BRANCH
 volumes:
   - name: cache
     host:
