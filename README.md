@@ -1,6 +1,6 @@
-# Vicoders Drone Plugin Secret To ENV
+# Vicoders Drone Plugin Secret To WP Config
 
-- [Vicoders Drone Plugin Secret To ENV](#vicoders-drone-plugin-secret-to-env)
+- [Vicoders Drone Plugin Secret To WP Config](#vicoders-drone-plugin-secret-to-wp-config)
   - [Usage](#usage)
 
 <a name="usage"></a>
@@ -13,18 +13,18 @@ name: default
 
 steps:
 - name: env
-    image: nightfuryest/drone-plugin-secret-to-env
+    image: nightfuryest/drone-plugin-secret-to-wp-config
     settings:
-      template: .env.staging.template
-      file: .env
+      template: wp-config-prod.template
+      file: wp-config.php
       envs:
-        - GIT_TOKEN
-        - GIT_DEFAULT_ORGANIZATION
-        - GIT_DEFAULT_BRANCH
-      GIT_TOKEN:
-        from_secret: GIT_TOKEN
-      GIT_DEFAULT_ORGANIZATION:
-        from_secret: GIT_DEFAULT_ORGANIZATION
-      GIT_DEFAULT_BRANCH:
-        from_secret: GIT_DEFAULT_BRANCH
+        - DB_HOST
+        - DB_USER
+        - DB_PASSWORD
+      DB_HOST:
+        from_secret: DB_HOST
+      DB_USER:
+        from_secret: DB_USER
+      DB_PASSWORD:
+        from_secret: DB_PASSWORD
 ```

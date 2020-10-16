@@ -19,7 +19,7 @@ steps:
   - name: build
     image: plugins/docker
     settings:
-      repo: nightfuryest/drone-plugin-secret-to-env
+      repo: nightfuryest/drone-plugin-secret-to-wp-config
       tags:
         - latest
         - ${DRONE_COMMIT_BRANCH}
@@ -30,25 +30,28 @@ steps:
       - name: docker
         path: /var/lib/docker
   - name: env
-    image: nightfuryest/drone-plugin-secret-to-env
+    image: nightfuryest/drone-plugin-secret-to-wp-config
     settings:
-      template: .env.staging.template
-      file: .env
+      template: wp-config.template
+      file: wp-config.php
       envs:
-        - GIT_TOKEN
-        - GIT_DEFAULT_ORGANIZATION
-        - GIT_DEFAULT_BRANCH
-      GIT_TOKEN:
-        from_secret: GIT_TOKEN
-      GIT_DEFAULT_ORGANIZATION:
-        from_secret: GIT_DEFAULT_ORGANIZATION
-      GIT_DEFAULT_BRANCH:
-        from_secret: GIT_DEFAULT_BRANCH
+        - DB_NAME
+        - DB_USER
+        - DB_PASSWORD
+        - DB_HOST
+      DB_NAME:
+        from_secret: DB_NAME
+      DB_USER:
+        from_secret: DB_USER
+      DB_PASSWORD:
+        from_secret: DB_PASSWORD
+      DB_HOST:
+        from_secret: DB_HOST
   - name: test
     image: busybox
     commands:
       - ls -al
-      - cat .env
+      - cat wp-config.php
 volumes:
   - name: cache
     host:
